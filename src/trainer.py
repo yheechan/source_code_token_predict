@@ -47,24 +47,24 @@ def train(
 
         for step, batch in enumerate(train_dataloader):
             # Load batch to GPU
-            firsts, seconds, labels = tuple(t.to(device) for t in batch)
+            prefix, postfix, label = tuple(t.to(device) for t in batch)
 
             # Zero out any previously calculated gradients
             # model.zero_grad()
             optimizer.zero_grad()
 
             # Perform a forward pass. This will return logits.
-            logits = model(firsts, seconds)
+            logits = model(prefix, postfix)
 
             # Compute loss and accumulate the loss values
-            loss = loss_fn(logits, labels)
+            loss = loss_fn(logits, label)
             tot_train_loss.append(loss.item())
 
             # Get the predictions
             preds = torch.argmax(logits, dim=1).flatten()
 
             # Calculate the accuracy rate
-            accuracy = (preds == labels).cpu().numpy().mean() * 100
+            accuracy = (preds == label).cpu().numpy().mean() * 100
             tot_train_acc.append(accuracy)
 
             # Perform a backward pass to calculate gradients
@@ -135,21 +135,21 @@ def evaluate(
     # For each batch in our validation set...
     for batch in val_dataloader:
         # Load batch to GPU
-        firsts, seconds, labels = tuple(t.to(device) for t in batch)
+        prefix, postfix, label = tuple(t.to(device) for t in batch)
 
         # Compute logits
         with torch.no_grad():
-            logits = model(firsts, seconds)
+            logits = model(prefix, postfix)
 
         # Compute loss
-        loss = loss_fn(logits, labels)
+        loss = loss_fn(logits, label)
         val_loss.append(loss.item())
 
         # Get the predictions
         preds = torch.argmax(logits, dim=1).flatten()
 
         # Calculate the accuracy rate
-        accuracy = (preds == labels).cpu().numpy().mean() * 100
+        accuracy = (preds == label).cpu().numpy().mean() * 100
         val_accuracy.append(accuracy)
 
     # Compute the average accuracy and loss over the validation set.
