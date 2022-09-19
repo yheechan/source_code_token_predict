@@ -1,0 +1,16 @@
+boringssl_total: 		903678
+c-ares_total: 		58809
+freetype2_total: 		36511
+guetzli_total: 		49608
+harfbuzz_total: 		249637
+libpng_total: 		85967
+libssh_total: 		203616
+libxml2_total: 		1254196
+pcre_total: 		272459
+proj4_total: 		194734
+re2_total: 		99234
+sqlite3_total: 		447645
+total: 		4359843
+vorbis_total: 		96157
+woff2_total: 		307227
+wpantund_total: 		100365
