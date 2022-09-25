@@ -32,7 +32,7 @@ def initialize_model(
             pretrained_embedding=pretrained_model,
             freeze_embedding=freeze_embedding
         )
-    
+
     model.to(device)
 
     if optim_name == "Adam":
