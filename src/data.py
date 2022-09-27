@@ -1,6 +1,5 @@
 import json
 import numpy as np
-from collections import OrderedDict
 
 def getSingleProjectData(proj_list, target_project):
 
@@ -9,8 +8,6 @@ def getSingleProjectData(proj_list, target_project):
     prefix = []
     postfix = []
     label = []
-
-    seen = OrderedDict()
 
     for proj in proj_list:
         
@@ -31,6 +28,24 @@ def getSingleProjectData(proj_list, target_project):
             prefix.append(json_data['prefix'])
             postfix.append(json_data['postfix'])
             label.append(json_data['label-type'][0])
+    
+    return np.array(prefix), np.array(postfix), np.array(label)
+
+def getTestData(target_project):
+    prefix = []
+    postfix = []
+    label = []
+
+    with open('../data/' + target_project, 'r') as f:
+
+        lines = [line for line in f]
+    
+    for line in lines:
+        json_data = json.loads(line.rstrip())
+
+        prefix.append(json_data['prefix'])
+        postfix.append(json_data['postfix'])
+        label.append(json_data['label-type'][0])
     
     return np.array(prefix), np.array(postfix), np.array(label)
 
