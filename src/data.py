@@ -1,5 +1,6 @@
 import json
 import numpy as np
+from collections import OrderedDict
 
 def getSingleProjectData(proj_list, target_project):
 
@@ -9,6 +10,8 @@ def getSingleProjectData(proj_list, target_project):
     postfix = []
     label = []
 
+    seen = OrderedDict()
+
     for proj in proj_list:
         
         if proj == target_project or proj == total_file: continue
@@ -16,11 +19,14 @@ def getSingleProjectData(proj_list, target_project):
         print('Getting data for \"' + target_project + '\" from \"' + proj + '\"')
 
         with open('../data/' + proj, 'r') as f:
-            lines = [line.rstrip() for line in f]
+
+            lines = set(f.readlines())
+
+            # lines = [line for line in f]
         
         for line in lines:
 
-            json_data = json.loads(line)
+            json_data = json.loads(line.rstrip())
 
             prefix.append(json_data['prefix'])
             postfix.append(json_data['postfix'])
