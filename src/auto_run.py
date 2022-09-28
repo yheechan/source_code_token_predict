@@ -28,7 +28,7 @@ proj_list = [
     'woff2_total', 'wpantund_total'
 ]
 
-for i in range(3, len(proj_list), 2):
+for i in range(0, len(proj_list), 1):
     if i == 12: continue
 
     target_project = i
@@ -54,7 +54,7 @@ for i in range(3, len(proj_list), 2):
 
     # PyTorch TensorBoard support
     timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
-    writer = SummaryWriter('../tensorboard/ctp/tests')
+    writer = SummaryWriter('../tensorboard/ctp2_tmp/tests')
 
 
     if torch.cuda.is_available():
@@ -71,19 +71,19 @@ for i in range(3, len(proj_list), 2):
     # set parameters here
     # ====================
 
-    title = proj_list[target_project]
+    title = proj_list[target_project] + '2_tmp2'
     epochs = 20
 
-    embed_dim = 50
+    embed_dim = 128
     max_len, source_code_tokens, token_choices = data.getInfo()
     pretrained_token2vec = pm.load_pretrained_model(source_code_tokens, embed_dim)
     pretrained_token2vec = torch.tensor(pretrained_token2vec)
 
 
     input_size = max_len
-    hidden_size = 50
+    hidden_size = 300
     num_classes = max(token_choices) + 1
-    rnn_layers = 1
+    rnn_layers = 2
 
     num_filters = [100, 200, 100]
     kernel_sizes = [15, 21, 114]
@@ -151,7 +151,7 @@ for i in range(3, len(proj_list), 2):
                             title=title)
     
 
-    with open('../result/final', 'a') as f:
+    with open('../result/final2_tmp', 'a') as f:
         text = title + '\t |\tloss: ' + str(loss) + '\t |\tacc: ' + str(acc) + '\n'
         f.write(text)
     
