@@ -28,7 +28,7 @@ proj_list = [
     'woff2_total', 'wpantund_total'
 ]
 
-for i in range(3, len(proj_list), 1):
+for i in range(3, len(proj_list), 2):
     if i == 12: continue
 
     target_project = i
