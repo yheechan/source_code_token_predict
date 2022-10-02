@@ -4,6 +4,8 @@ import torch
 from torch.utils.tensorboard import SummaryWriter
 from datetime import datetime
 
+import timeit
+
 import data
 import data_loader as dl
 import initializer as init
@@ -28,10 +30,11 @@ proj_list = [
     'woff2_total', 'wpantund_total'
 ]
 
-for i in range(0, len(proj_list), 1):
-    if i == 12: continue
+for i in range(5, 9, 1):
 
-    target_project = i
+    desc = str(i)
+
+    target_project = 0
 
 
     prefix_np, postfix_np, label_np = data.getSingleProjectData(proj_list, proj_list[target_project])
@@ -39,7 +42,11 @@ for i in range(0, len(proj_list), 1):
 
 
     train_prefix, val_prefix, train_postfix, val_postfix, train_label, val_label = train_test_split(
-        prefix_np, postfix_np, label_np, test_size = 0.2, random_state = 43
+        prefix_np, postfix_np, label_np, test_size = 0.1*i, random_state = 43
+    )
+
+    train_prefix, val_prefix, train_postfix, val_postfix, train_label, val_label = train_test_split(
+        train_prefix, train_postfix, train_label, test_size = 0.2, random_state = 43
     )
 
 
@@ -54,7 +61,7 @@ for i in range(0, len(proj_list), 1):
 
     # PyTorch TensorBoard support
     timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
-    writer = SummaryWriter('../tensorboard/ctp2_tmp/tests')
+    writer = SummaryWriter('../tensorboard/ctp3_reduce/tests')
 
 
     if torch.cuda.is_available():
@@ -71,8 +78,8 @@ for i in range(0, len(proj_list), 1):
     # set parameters here
     # ====================
 
-    title = proj_list[target_project] + '2_tmp2'
-    epochs = 20
+    title = proj_list[target_project] + '3_reduce_' + desc
+    epochs = 80
 
     embed_dim = 128
     max_len, source_code_tokens, token_choices = data.getInfo()
@@ -81,7 +88,7 @@ for i in range(0, len(proj_list), 1):
 
 
     input_size = max_len
-    hidden_size = 300
+    hidden_size = 200
     num_classes = max(token_choices) + 1
     rnn_layers = 2
 
@@ -124,6 +131,7 @@ for i in range(0, len(proj_list), 1):
 
     print(model)
 
+    start_time = timeit.default_timer()
 
     trainer.train(
         epochs=epochs,
@@ -137,9 +145,9 @@ for i in range(0, len(proj_list), 1):
         loss_fn=loss_fn
     )
 
+    end_time = (timeit.default_timer() - start_time) / 60.0
 
     mu.saveModel(title, model)
-
 
     model = mu.getModel(title)
     print(model)
@@ -151,8 +159,8 @@ for i in range(0, len(proj_list), 1):
                             title=title)
     
 
-    with open('../result/final2_tmp', 'a') as f:
-        text = title + '\t |\tloss: ' + str(loss) + '\t |\tacc: ' + str(acc) + '\n'
+    with open('../result/final3_reduce', 'a') as f:
+        text = title + '\t |\tloss: ' + str(loss) + '\t |\tacc: ' + str(acc) + '\t |\t time: ' + str(round(end_time, 3)) + ' min\n'
         f.write(text)
     
 
