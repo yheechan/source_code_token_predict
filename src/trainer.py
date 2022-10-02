@@ -100,11 +100,11 @@ def train(
             print(f"{epoch_i + 1:^7} | {avg_train_loss:^12.6f} | {avg_train_acc:^10.6f} | {val_loss:^8.6f} | {val_acc:^6.2f} | {time_elapsed:^6.2f}")
 
         writer.add_scalars(title + '-Loss',
-                { 'Train' : avg_train_loss, 'Test' : val_loss },
+                { 'Train' : avg_train_loss, 'Validation' : val_loss },
                 epoch_i + 1)
 
         writer.add_scalars(title + '-Accuracy',
-                    { 'Train' : avg_train_acc, 'Test' : val_acc },
+                    { 'Train' : avg_train_acc, 'Validation' : val_acc },
                     epoch_i + 1)
     
     writer.flush()

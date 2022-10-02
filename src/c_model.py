@@ -88,16 +88,22 @@ class C_rnn(nn.Module):
         self.fc1 = nn.Linear(
             self.hidden_size*2*2,
             # self.n_classes
-            300
+            1000
         )
 
-        self.fc2 = nn.Linear(
-            300, 
+        # self.fc2 = nn.Linear(
+        #     1000, 
+        #     1000,
+        # )
+
+        self.fc3 = nn.Linear(
+            1000,
             self.n_classes
         )
 
         self.dp1 = nn.Dropout(self.dropout)
-        self.dp2 = nn.Dropout(self.dropout)
+        # self.dp2 = nn.Dropout(self.dropout)
+        self.dp3 = nn.Dropout(self.dropout)
     
     def forward(self, x1, x2):
 
@@ -110,6 +116,7 @@ class C_rnn(nn.Module):
         y = torch.cat((a, b), 1)
 
         y = self.fc1(self.dp1(F.relu(y)))
-        y = self.fc2(self.dp2(F.relu(y)))
+        # y = self.fc2(self.dp2(F.relu(y)))
+        y = self.fc3(self.dp3(F.relu(y)))
 
         return y

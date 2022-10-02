@@ -2,3 +2,7 @@ boringssl_total2_tmp	 |	loss: 1.3482969077850628	 |	acc: 75.5891472868217
 boringssl_total2_tmp2	 |	loss: 1.6967435252758885	 |	acc: 74.68504983388704
 c-ares_total2_tmp2	 |	loss: 0.25707197215022715	 |	acc: 91.10000000000001
 boringssl_total2_tmp3	 |	loss: 1.4578173361764009	 |	acc: 74.10902047592694
+boringssl_total2_tmp5	 |	loss: 1.6897254757178846	 |	acc: 75.26976744186047
+boringssl_total2_tmp6	 |	loss: 1.8187218812084938	 |	acc: 74.5578073089701
+boringssl_total2_tmp8	 |	loss: 1.4499928143333358	 |	acc: 77.02580287929125
+boringssl_total2_tmp9	 |	loss: 1.8707706915051703	 |	acc: 73.73355481727575
