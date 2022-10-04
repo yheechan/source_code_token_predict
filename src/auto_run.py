@@ -30,19 +30,18 @@ proj_list = [
     'woff2_total', 'wpantund_total'
 ]
 
-for i in range(5, 9, 1):
+for i in range(6):
 
     desc = str(i)
 
     target_project = 0
-
 
     prefix_np, postfix_np, label_np = data.getSingleProjectData(proj_list, proj_list[target_project])
     test_prefix, test_postfix, test_label = data.getTestData(proj_list[target_project])
 
 
     train_prefix, val_prefix, train_postfix, val_postfix, train_label, val_label = train_test_split(
-        prefix_np, postfix_np, label_np, test_size = 0.1*i, random_state = 43
+        prefix_np, postfix_np, label_np, test_size = 0.7, random_state = 43
     )
 
     train_prefix, val_prefix, train_postfix, val_postfix, train_label, val_label = train_test_split(
@@ -61,7 +60,7 @@ for i in range(5, 9, 1):
 
     # PyTorch TensorBoard support
     timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
-    writer = SummaryWriter('../tensorboard/ctp3_reduce/tests')
+    writer = SummaryWriter('../tensorboard/ctp5_dp7/tests')
 
 
     if torch.cuda.is_available():
@@ -78,8 +77,8 @@ for i in range(5, 9, 1):
     # set parameters here
     # ====================
 
-    title = proj_list[target_project] + '3_reduce_' + desc
-    epochs = 80
+    title = proj_list[target_project] + '5_dp7_' + desc
+    epochs = 50
 
     embed_dim = 128
     max_len, source_code_tokens, token_choices = data.getInfo()
@@ -95,7 +94,7 @@ for i in range(5, 9, 1):
     num_filters = [100, 200, 100]
     kernel_sizes = [15, 21, 114]
 
-    dropout = 0.0
+    dropout = 0.1*i
 
     learning_rate = 0.001
     weight_decay = 1e-4
@@ -159,7 +158,7 @@ for i in range(5, 9, 1):
                             title=title)
     
 
-    with open('../result/final3_reduce', 'a') as f:
+    with open('../result/final5_dp7', 'a') as f:
         text = title + '\t |\tloss: ' + str(loss) + '\t |\tacc: ' + str(acc) + '\t |\t time: ' + str(round(end_time, 3)) + ' min\n'
         f.write(text)
     

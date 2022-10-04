@@ -1,0 +1,6 @@
+boringssl_total4_balance_1	 |	loss: 1.346997944355539	 |	acc: 76.81827242524916	 |	 time: 258.32 min
+boringssl_total4_balance_2	 |	loss: 1.591117609510918	 |	acc: 73.99557032115172	 |	 time: 245.651 min
+boringssl_total4_balance_3	 |	loss: 1.7998153508567598	 |	acc: 73.65038759689922	 |	 time: 220.54 min
+boringssl_total4_balance_4	 |	loss: 1.5367578628451326	 |	acc: 73.93997785160576	 |	 time: 200.565 min
+boringssl_total4_balance_5	 |	loss: 1.7966439850702633	 |	acc: 74.49878183831672	 |	 time: 182.479 min
+boringssl_total4_balance_6	 |	loss: 1.7471065811672613	 |	acc: 73.36578073089701	 |	 time: 163.844 min

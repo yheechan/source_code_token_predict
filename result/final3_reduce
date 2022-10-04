@@ -2,3 +2,4 @@ boringssl_total3_reduce_5	 |	loss: 1.5550591978651873	 |	acc: 74.11650055370986	
 boringssl_total3_reduce_6	 |	loss: 1.430935951430404	 |	acc: 75.54972314507198	 |	 time: 252.253 min
 boringssl_total3_reduce_7	 |	loss: 1.3484265024083792	 |	acc: 76.63654485049834	 |	 time: 189.176 min
 boringssl_total3_reduce_8	 |	loss: 1.602629501690236	 |	acc: 74.86301218161682	 |	 time: 128.311 min
+boringssl_total3_reduce_9  |  loss: 1.6916886731767706   |  acc: 73.10919158361018   |   time: 136.167 min
