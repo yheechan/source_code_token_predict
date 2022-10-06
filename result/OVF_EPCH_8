@@ -1,0 +1,7 @@
+boringssl_total8_OVF_EPCH_2	 |	loss: 1.3040244472383264	 |	acc: 77.86854928017719	 |	 time: 49.044 min
+boringssl_total8_OVF_EPCH_4	 |	loss: 1.441914864816803	 |	acc: 76.04396456256922	 |	 time: 97.89 min
+boringssl_total8_OVF_EPCH_6	 |	loss: 1.359025902658338	 |	acc: 76.39545957918051	 |	 time: 147.797 min
+boringssl_total8_OVF_EPCH_8	 |	loss: 1.547802417513276	 |	acc: 76.0873754152824	 |	 time: 192.546 min
+boringssl_total8_OVF_EPCH_4-1	 |	loss: 1.1892610514414799	 |	acc: 77.77264673311186	 |	 time: 146.199 min
+boringssl_total8_OVF_EPCH_4-2	 |	loss: 1.7364730606575476	 |	acc: 75.0296788482835	 |	 time: 146.71 min
+boringssl_total8_OVF_EPCH_4-3	 |	loss: 5.044115924095923	 |	acc: 74.47464008859357	 |	 time: 102.006 min

@@ -30,7 +30,7 @@ proj_list = [
     'woff2_total', 'wpantund_total'
 ]
 
-for i in range(6):
+for i in range(2, 9, 2):
 
     desc = str(i)
 
@@ -60,7 +60,7 @@ for i in range(6):
 
     # PyTorch TensorBoard support
     timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
-    writer = SummaryWriter('../tensorboard/ctp5_dp7/tests')
+    writer = SummaryWriter('../tensorboard/OVF_EPCH_8/tests')
 
 
     if torch.cuda.is_available():
@@ -77,8 +77,8 @@ for i in range(6):
     # set parameters here
     # ====================
 
-    title = proj_list[target_project] + '5_dp7_' + desc
-    epochs = 50
+    title = proj_list[target_project] + '8_OVF_EPCH_' + desc
+    epochs = 10*i
 
     embed_dim = 128
     max_len, source_code_tokens, token_choices = data.getInfo()
@@ -94,7 +94,7 @@ for i in range(6):
     num_filters = [100, 200, 100]
     kernel_sizes = [15, 21, 114]
 
-    dropout = 0.1*i
+    dropout = 0.0
 
     learning_rate = 0.001
     weight_decay = 1e-4
@@ -158,7 +158,7 @@ for i in range(6):
                             title=title)
     
 
-    with open('../result/final5_dp7', 'a') as f:
+    with open('../result/OVF_EPCH_8', 'a') as f:
         text = title + '\t |\tloss: ' + str(loss) + '\t |\tacc: ' + str(acc) + '\t |\t time: ' + str(round(end_time, 3)) + ' min\n'
         f.write(text)
     
