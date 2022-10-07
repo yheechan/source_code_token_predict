@@ -30,7 +30,9 @@ proj_list = [
     'woff2_total', 'wpantund_total'
 ]
 
-for i in range(2, 9, 2):
+for i in range(15):
+
+    if (i == 12): continue
 
     desc = str(i)
 
@@ -41,12 +43,12 @@ for i in range(2, 9, 2):
 
 
     train_prefix, val_prefix, train_postfix, val_postfix, train_label, val_label = train_test_split(
-        prefix_np, postfix_np, label_np, test_size = 0.7, random_state = 43
+        prefix_np, postfix_np, label_np, test_size = 0.2, random_state = 43
     )
 
-    train_prefix, val_prefix, train_postfix, val_postfix, train_label, val_label = train_test_split(
-        train_prefix, train_postfix, train_label, test_size = 0.2, random_state = 43
-    )
+    # train_prefix, val_prefix, train_postfix, val_postfix, train_label, val_label = train_test_split(
+    #     train_prefix, train_postfix, train_label, test_size = 0.2, random_state = 43
+    # )
 
 
     train_dataloader, val_dataloader, test_dataloader = dl.data_loader(
@@ -60,7 +62,7 @@ for i in range(2, 9, 2):
 
     # PyTorch TensorBoard support
     timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
-    writer = SummaryWriter('../tensorboard/OVF_EPCH_8/tests')
+    writer = SummaryWriter('../tensorboard/phase2/tests')
 
 
     if torch.cuda.is_available():
@@ -77,8 +79,8 @@ for i in range(2, 9, 2):
     # set parameters here
     # ====================
 
-    title = proj_list[target_project] + '8_OVF_EPCH_' + desc
-    epochs = 10*i
+    title = proj_list[target_project] + '_phase2_' + desc
+    epochs = 40
 
     embed_dim = 128
     max_len, source_code_tokens, token_choices = data.getInfo()
@@ -94,10 +96,10 @@ for i in range(2, 9, 2):
     num_filters = [100, 200, 100]
     kernel_sizes = [15, 21, 114]
 
-    dropout = 0.0
+    dropout = 0.3
 
     learning_rate = 0.001
-    weight_decay = 1e-4
+    weight_decay = 0
 
     model_name = "RNN"
     optim_name = "Adam"
@@ -158,7 +160,7 @@ for i in range(2, 9, 2):
                             title=title)
     
 
-    with open('../result/OVF_EPCH_8', 'a') as f:
+    with open('../result/phase2', 'a') as f:
         text = title + '\t |\tloss: ' + str(loss) + '\t |\tacc: ' + str(acc) + '\t |\t time: ' + str(round(end_time, 3)) + ' min\n'
         f.write(text)
     

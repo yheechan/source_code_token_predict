@@ -1,1 +1,4 @@
 boringssl_total9_real_OVF_8	 |	loss: 5.2233346480203755	 |	acc: 77.2922480620155	 |	 time: 335.955 min
+boringssl_total9_real_OVF_8_dp2	 |	loss: 3.8289528281189673	 |	acc: 77.31827242524916	 |	 time: 358.065 min
+boringssl_total9_real_OVF_8_dp4	 |	loss: 3.582142929962175	 |	acc: 75.95171650055372	 |	 time: 358.0 min
+boringssl_total9_real_OVF_8_dp3	 |	loss: 3.2414827890702393	 |	acc: 78.39656699889258	 |	 time: 359.177 min
