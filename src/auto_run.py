@@ -30,13 +30,13 @@ proj_list = [
     'woff2_total', 'wpantund_total'
 ]
 
-for i in range(15):
+for i in range(1, 16, 1):
 
     if (i == 12): continue
 
     desc = str(i)
 
-    target_project = 0
+    target_project = i
 
     prefix_np, postfix_np, label_np = data.getSingleProjectData(proj_list, proj_list[target_project])
     test_prefix, test_postfix, test_label = data.getTestData(proj_list[target_project])
