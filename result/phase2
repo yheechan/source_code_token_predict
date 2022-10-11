@@ -3,3 +3,12 @@ freetype2_total_phase2_2	 |	loss: 0.5126481238338683	 |	acc: 90.73333333333333	 
 guetzli_total_phase2_3	 |	loss: 0.5105990518112572	 |	acc: 87.81428571428572	 |	 time: 426.112 min
 harfbuzz_total_phase2_4	 |	loss: 1.7532862228562076	 |	acc: 82.9152610441767	 |	 time: 421.863 min
 libpng_total_phase2_5	 |	loss: 0.32124657928943634	 |	acc: 91.94	 |	 time: 421.784 min
+libssh_total_phase2_6	 |	loss: 0.4659347318369767	 |	acc: 93.76502463054187	 |	 time: 407.046 min
+libxml2_total_phase2_7	 |	loss: 0.43233263680334105	 |	acc: 92.0493620414673	 |	 time: 296.958 min
+pcre_total_phase2_8	 |	loss: 0.26888705450384054	 |	acc: 93.91874999999999	 |	 time: 414.442 min
+proj4_total_phase2_9	 |	loss: 0.767514356940063	 |	acc: 85.3881443298969	 |	 time: 411.694 min
+re2_total_phase2_10	 |	loss: 0.4855630256310858	 |	acc: 91.01616161616161	 |	 time: 423.316 min
+sqlite3_total_phase2_11	 |	loss: 0.49046922116738306	 |	acc: 90.42080536912752	 |	 time: 375.829 min
+vorbis_total_phase2_13	 |	loss: 0.33645374855647486	 |	acc: 92.07083333333334	 |	 time: 425.869 min
+woff2_total_phase2_14	 |	loss: 0.09137887538013319	 |	acc: 97.91368078175896	 |	 time: 870.774 min com2
+wpantund_total_phase2_15	 |	loss: 0.782935135960579	 |	acc: 87.197	 |	 time: 891.233 min com2
