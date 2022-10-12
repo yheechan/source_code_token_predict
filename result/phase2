@@ -1,3 +1,4 @@
+boringssl_total9_real_OVF_8_dp3	 |	loss: 3.2414827890702393	 |	acc: 78.39656699889258	 |	 time: 359.177 min
 c-ares_total_phase2_1	 |	loss: 0.2514275258471226	 |	acc: 93.33448275862068	 |	 time: 425.09 min
 freetype2_total_phase2_2	 |	loss: 0.5126481238338683	 |	acc: 90.73333333333333	 |	 time: 427.096 min
 guetzli_total_phase2_3	 |	loss: 0.5105990518112572	 |	acc: 87.81428571428572	 |	 time: 426.112 min
